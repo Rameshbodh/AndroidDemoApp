@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.dmi.barcodetextscanhelper;
+package com.dmi.barcodetextscanhelper.barcode;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -22,6 +22,7 @@ import android.graphics.RectF;
 
 import com.dmi.barcodetextscanhelper.ui.camera.GraphicOverlay;
 import com.google.android.gms.vision.barcode.Barcode;
+import com.google.android.gms.vision.text.TextBlock;
 
 /**
  * Graphic instance for rendering barcode position, size, and ID within an associated graphic
@@ -30,6 +31,7 @@ import com.google.android.gms.vision.barcode.Barcode;
 public class BarcodeGraphic extends GraphicOverlay.Graphic {
 
     private int mId;
+    private final TextBlock mText;
 
     private static final int COLOR_CHOICES[] = {
             Color.BLUE,
@@ -43,8 +45,9 @@ public class BarcodeGraphic extends GraphicOverlay.Graphic {
     private Paint mTextPaint;
     private volatile Barcode mBarcode;
 
-    BarcodeGraphic(GraphicOverlay overlay) {
+    BarcodeGraphic(GraphicOverlay overlay, TextBlock mText) {
         super(overlay);
+        this.mText = mText;
 
         mCurrentColorIndex = (mCurrentColorIndex + 1) % COLOR_CHOICES.length;
         final int selectedColor = COLOR_CHOICES[mCurrentColorIndex];
@@ -78,6 +81,26 @@ public class BarcodeGraphic extends GraphicOverlay.Graphic {
     void updateItem(Barcode barcode) {
         mBarcode = barcode;
         postInvalidate();
+    }
+
+    /**
+     * Checks whether a point is within the bounding box of this graphic.
+     * The provided point should be relative to this graphic's containing overlay.
+     * @param x An x parameter in the relative context of the canvas.
+     * @param y A y parameter in the relative context of the canvas.
+     * @return True if the provided point is contained within this graphic's bounding box.
+     */
+    public boolean contains(float x, float y) {
+        TextBlock text = mText;
+        if (text == null) {
+            return false;
+        }
+        RectF rect = new RectF(text.getBoundingBox());
+        rect.left = translateX(rect.left);
+        rect.top = translateY(rect.top);
+        rect.right = translateX(rect.right);
+        rect.bottom = translateY(rect.bottom);
+        return (rect.left < x && rect.right > x && rect.top < y && rect.bottom > y);
     }
 
     /**

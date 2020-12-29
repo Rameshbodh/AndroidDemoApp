@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.dmi.barcodetextscanhelper;
+package com.dmi.barcodetextscanhelper.barcode;
 
 import android.content.Context;
 
@@ -38,7 +38,7 @@ class BarcodeTrackerFactory implements MultiProcessor.Factory<Barcode> {
 
     @Override
     public Tracker<Barcode> create(Barcode barcode) {
-        BarcodeGraphic graphic = new BarcodeGraphic(mGraphicOverlay);
+        BarcodeGraphic graphic = new BarcodeGraphic(mGraphicOverlay, null);
         return new BarcodeGraphicTracker(mGraphicOverlay, graphic, mContext);
     }
 

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.dmi.barcodetextscanhelper;
+package com.dmi.barcodetextscanhelper.barcode;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -39,6 +39,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.dmi.barcodetextscanhelper.R;
 import com.dmi.barcodetextscanhelper.ui.camera.CameraSource;
 import com.dmi.barcodetextscanhelper.ui.camera.CameraSourcePreview;
 import com.dmi.barcodetextscanhelper.ui.camera.GraphicOverlay;

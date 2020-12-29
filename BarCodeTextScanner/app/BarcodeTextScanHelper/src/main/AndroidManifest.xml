@@ -10,15 +10,30 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
         <meta-data
             android:name="com.google.android.gms.vision.DEPENDENCIES"
-            android:value="barcode" />
+            android:value="barcode, ocr" />
+
 
         <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main"></activity>
+            android:name=".barcode.BarcodeActivity"
+            android:label="@string/title_activity_main"
+            android:screenOrientation="landscape"></activity>
 
-        <activity android:name=".BarcodeCaptureActivity"
-            android:label="Read Barcode"/>
+        <activity
+            android:name=".ocr.OCRActivity"
+            android:label="@string/title_activity_main"
+            android:screenOrientation="landscape"></activity>
+
+        <activity
+            android:name=".ocr.OcrCaptureActivity"
+            android:label="Read Text"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".barcode.BarcodeCaptureActivity"
+            android:label="Read Barcode"
+            android:screenOrientation="landscape" />
     </application>
 </manifest>

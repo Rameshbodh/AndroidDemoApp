@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.dmi.barcodetextscanhelper;
+package com.dmi.barcodetextscanhelper.barcode;
 
 import android.content.Context;
 
