@@ -1,0 +1,4 @@
+include ':app:scannerhelper'
+include ':libATAScanner'
+include ':app'
+rootProject.name = "ScannerOVerview"

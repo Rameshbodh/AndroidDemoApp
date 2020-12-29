@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Flight Details -->
+    <dimen name="text_size_huge">27sp</dimen>
+    <dimen name="text_size_big">21sp</dimen>
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="text_size_small">16sp</dimen>
+    <dimen name="text_size_tiny">14sp</dimen>
+    <dimen name="text_size_extra_small">12sp</dimen>
+
+    <dimen name="flight_detail_horizontal_margin">16dp</dimen>
+    <dimen name="flight_detail_vertical_margin">12dp</dimen>
+    <dimen name="flight_detail_status_padding">30dp</dimen>
+
+    <!--
+    Because the window insets on round devices are larger than 15dp, this padding only applies
+    to square screens.
+    -->
+    <dimen name="box_inset_layout_padding">16dp</dimen>
+
+    <!--
+    This padding applies to both square and round screens. The total padding between the buttons
+    and the window insets is box_inset_layout_padding (above variable) on square screens and
+    inner_frame_layout_padding (below variable) on round screens.
+    -->
+
+    <dimen name="my_flight_header_margin_top">12dp</dimen>
+    <dimen name="my_flight_padding">8dp</dimen>
+
+    <dimen name="my_flight_list_item_divider_space">4dp</dimen>
+    <dimen name="my_flight_list_status_padding">7dp</dimen>
+    <dimen name="activity_horizontal_margin">15dp</dimen>
+</resources>
