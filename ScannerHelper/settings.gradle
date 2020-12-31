@@ -1,2 +1,3 @@
+include ':app:scanHelper'
 include ':app'
 rootProject.name = "ScannerHelper"
